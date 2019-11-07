@@ -11,3 +11,37 @@ snippet temp
     }
   }
 
+
+snippet sysout
+  System.out.println("");
+
+snippet swing
+	import java.awt.*;
+  import java.awt.event.*;
+  import javax.swing.*;
+  import java.util.Random;
+
+  public class `expand("%:r")` JFrame implements ActionListener {
+    private type var;
+
+    public `expand("%:r")`() {
+      super();
+      this.var.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+      if(e.getSource() == this.save) {
+      }
+    }
+
+    public static void main(String[] args ) {
+      `expand("%:r")` var = new `expand("%:r")`();
+
+			String title = "`expand("%:r")`";
+			q.setSize(720, 480);
+			q.setLocation(0, 0);
+			q.setVisible(true);
+			q.setTitle(title);
+			q.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+  }
