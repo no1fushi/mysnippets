@@ -15,9 +15,8 @@ snippet swing
   import java.awt.*;
   import java.awt.event.*;
   import javax.swing.*;
-  import java.util.Random;
 
-  public class `expand("%:r")` JFrame implements ActionListener {
+  public class `expand("%:r")` extends JFrame implements ActionListener {
     private type var;
 
     public `expand("%:r")`() {
@@ -34,14 +33,60 @@ snippet swing
       `expand("%:r")` var = new `expand("%:r")`();
 
       String title = "`expand("%:r")`";
-      q.setSize(720, 480);
-      q.setLocation(0, 0);
-      q.setVisible(true);
-      q.setTitle(title);
-      q.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      var.setSize(720, 480);
+      var.setLocation(0, 0);
+      var.setVisible(true);
+      var.setTitle(title);
+      var.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
   }
 
+snippet ap
+  public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == this.save) {
+    }
+  }
+
+snippet openfile
+  public String openFile() {
+    String fn = "";
+    String all = "";
+    try {
+      FileReader fr = new FileReader(fn);
+      BufferedReader br = new BufferedReader(fr);
+      String buf;
+      while ((buf = br.readLine()) != null) {
+        all += buf;
+        all += System.getProperty("line.separator");
+      }
+      br.close();
+      fr.close();
+    } catch (Exception e) {
+      System.out.println("ファイル読み込みエラー");
+      System.exit(1);
+    }
+    return all;
+	}
+
+snippet writefile
+	public void writeFile() {
+    String fn = "";
+    String str = "";
+    try {
+      FileWriter fw = new FileWriter(fn);
+      BufferedWriter bw = new BufferedWriter(fw);
+      bw.write(str);
+      bw.close();
+      fw.close();
+    } catch (Exception e) {
+      System.out.println("ファイル読み込みエラー");
+      System.exit(1);
+    }
+	}
+
 snippet sysout
   System.out.println("");
+
+snippet exit
+  System.exit(1);
 
